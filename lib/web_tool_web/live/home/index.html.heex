@@ -1,0 +1,53 @@
+<.modal id="user_name_modal" show={is_nil(@user_name)}>
+  <.simple_form for={@form} phx-change="change_form" phx-submit="submit_form">
+    <.title>What's your username?</.title>
+    <.input field={@form["user_name"]} value={@form["user_name"]} name="user_name" id="user_name" label="Username"
+      required />
+    <:actions>
+      <.button>Save</.button>
+    </:actions>
+  </.simple_form>
+</.modal>
+
+<div class="w-full h-screen inline-flex items-center">
+  <div class="mx-auto w-10/12">
+    <.title class="text-center">Select a tool</.title>
+
+    <div class="grid grid-cols-2 gap-10 mt-10">
+
+      <div class="w-full rounded-lg bg-zinc-700  p-10 relative">
+        <div class="ml-12">
+          <.title class="">WebSocket</.title>
+          <div class="mt-4">
+            <.label>Un WebSocket es un protocolo que permite comunicación bidireccional en tiempo real entre el cliente
+              y el servidor en una conexión única.</.label>
+          </div>
+          <div class="w-full mt-6">
+            <.button phx-click="open_tool" phx-value-type="websocket">Go</.button>
+          </div>
+        </div>
+        <div class="top-5 -left-10 absolute bg-zinc-300 rounded-xl mt-4 h-24 w-24 inline-flex items-center">
+          <img src="/images/ws.png" class="w-20 h-auto mx-auto">
+        </div>
+      </div>
+
+
+      <div class="w-full rounded-lg bg-zinc-700 p-10 relative">
+        <div class="mr-12">
+          <.title class="">API</.title>
+          <div class="mt-4">
+            <.label>Un API es una interfaz que permite que aplicaciones se comuniquen entre sí, facilitando el
+              intercambio de datos y funciones de forma estructurada.</.label>
+          </div>
+          <div class="w-full mt-6">
+            <.button>Go</.button>
+          </div>
+        </div>
+        <div class="top-5 -right-10 absolute bg-zinc-300 rounded-xl mt-4 h-24 w-24 inline-flex items-center">
+          <img src="/images/api.png" class="w-20 h-auto mx-auto">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
